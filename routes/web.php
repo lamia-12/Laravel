@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VijestiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -107,3 +108,22 @@ Route::get('/studenti', function () {
 Route::get('/kontakt', function () {
     return view('kontakt');
 });
+
+
+
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Ruta koja koristi Controller
+Route::get('/vijesti', [VijestiController::class, 'index']);
+
+
+
+Route::get('/vijesti',       [VijestiController::class, 'index']);
+Route::get('/vijesti/{id}',  [VijestiController::class, 'show']);
+
+// Ova JEDNA linija registrira svih 7 ruta!
+Route::resource('clanci', ClanakController::class);
