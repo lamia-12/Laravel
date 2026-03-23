@@ -74,3 +74,36 @@ Route::get('/blog', function () {
     return view('blog', compact('clanci'));
     // compact('clanci') == ['clanci' => $clanci]
 });
+
+Route::get('/o-nama', function () {
+    return view('o-nama', [
+        'tim' => [
+            ['ime' => 'Ana Horvat',  'uloga' => 'Voditeljica projekta'],
+            ['ime' => 'Marko Babić', 'uloga' => 'Backend developer'],
+            ['ime' => 'Petra Kovač', 'uloga' => 'Frontend developer'],
+        ]
+    ]);
+});
+
+Route::get('/automobili', function () {
+    $automobili = [
+        ['id'=>1,'marka'=>'VW','model'=>'Golf','godina'=>2022],
+        ['id'=>2,'marka'=>'Toyota','model'=>'Corolla','godina'=>2021],
+        ['id'=>3,'marka'=>'BMW','model'=>'3 Series','godina'=>2023],
+    ];
+    return view('automobili', compact('automobili'));
+});
+
+Route::get('/studenti', function () {
+    $studenti = [
+        ['ime'=>'Ana Horvat', 'smjer'=>'Informatika', 'polozio'=>true],
+        ['ime'=>'Marko Babić','smjer'=>'Elektrotehnika','polozio'=>false],
+        ['ime'=>'Petra Kovač','smjer'=>'Strojarstvo', 'polozio'=>true],
+        ['ime'=>'Ivan Perić', 'smjer'=>'Informatika', 'polozio'=>true],
+    ];
+    return view('studenti', compact('studenti'));
+});
+
+Route::get('/kontakt', function () {
+    return view('kontakt');
+});
