@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VijestiController;
+use App\Http\Controllers\BlogController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -127,3 +129,7 @@ Route::get('/vijesti/{id}',  [VijestiController::class, 'show']);
 
 // Ova JEDNA linija registrira svih 7 ruta!
 Route::resource('clanci', ClanakController::class);
+
+
+Route::get('/blog',       [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{id}',  [BlogController::class, 'show'])->name('blog.show');
