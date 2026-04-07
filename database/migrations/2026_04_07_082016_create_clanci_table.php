@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('clanci', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->id();
+            $table->string('naslov');
+            $table->text('sadrzaj');
+            $table->string('autor');
+            $table->string('kategorija')->default('opce');
+            $table->boolean('objavljeno')->default(false);
+            $table->string('slika')->nullable();
+            $table->timestamps();
         });
     }
 
